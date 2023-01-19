@@ -1,31 +1,30 @@
 #include "candy.h"
 
-ALLEGRO_BITMAP* sprite_grab(int x, int y, int w, int h)
-{
-    ALLEGRO_BITMAP* sprite = al_create_sub_bitmap(sprites._sheet, x, y, w, h);
-    must_init(sprite, "sprite grab");
-    return sprite;
-}
-
-void sprites_init()
-{
+void initializeBoard(CANDY *board[]) {
     int i, j;
-    sprites._sheet = al_load_bitmap("./resources/images/test_fruits.png");
-    must_init(sprites._sheet, "spritesheet");
-
-    for (i = 0; i < 4; i++) {
-        sprites.candy[i] = sprite_grab(i * CANDY_W, 0, CANDY_W, CANDY_H);
-        sprites.candy[i + 4] = sprite_grab(i * CANDY_W, CANDY_H, CANDY_W, CANDY_H);
+    for (i = 0; i < BOARD_SIZE; i++) {
+        for (j = 0; j < BOARD_SIZE; j++) {
+            // Escolhe um tipo aleatorio
+            enum CANDY_TYPE ct = (between(0, CANDY_TYPE_N));
+            board[i][j].type = ct;
+            board[i][j].xBoardPos = i;
+            board[i][j].yBoardPos = j;
+            board[i][j].x = 0;
+            board[i][j].y = 0;
+            board[i][j].seq = false;
+        }
     }
+    return;
 }
 
-
-void sprites_deinit()
-{
-    int i;
-    for (i = 0; i < 8; i++) {
-        al_destroy_bitmap(sprites.candy[i]);
+void candysDraw(CANDY *board[]) {
+    int i, j;
+    for (i = 0; i < BOARD_SIZE; i++) {
+        for (j = 0; j < BOARD_SIZE; j++) {
+            if (!board[i][j].seq)
+                continue;
+            al_draw_bitmap(sprites.candy[board[i][j].type], board[i][j].x, board[i][j].y, 0);
+        }
     }
-
-    al_destroy_bitmap(sprites._sheet);
+    return;
 }

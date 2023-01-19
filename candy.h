@@ -1,18 +1,28 @@
 #include "general.h"
+#include "sprite.h"
 
-#define CANDY_W 24
-#define CANDY_H 24
+#define BOARD_SIZE 8
 
-
-typedef struct SPRITES
+typedef enum CANDY_TYPE 
 {
-    ALLEGRO_BITMAP* _sheet;
-    ALLEGRO_BITMAP* candy[8];
-} SPRITES;
-SPRITES sprites;
+    CT_RED = 0,
+    CT_PURPLE,
+    CT_GREEN,
+    CT_ORANGE,
+    CT_BLUE,
+    CT_BROWN,
+    CT_GRAY,
+    CT_BLACK,
+    CANDY_TYPE_N
+} CANDY_TYPE;
 
-ALLEGRO_BITMAP* sprite_grab(int x, int y, int w, int h);
+typedef struct CANDY
+{
+    int x, y;
+    int xBoardPos, yBoardPos;
+    CANDY_TYPE type;
+    bool seq;
+} CANDY;
 
-void sprites_init();
-
-void sprites_deinit();
+void initializeBoard(CANDY *board[]);
+void candysDraw(CANDY *board[]);
