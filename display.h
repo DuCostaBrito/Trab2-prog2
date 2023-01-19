@@ -4,8 +4,8 @@
 ALLEGRO_DISPLAY* disp;
 ALLEGRO_BITMAP* buffer;
 
-#define BUFFER_W 240
-#define BUFFER_H 320
+#define BUFFER_W 800
+#define BUFFER_H 1200
 
 #define DISP_SCALE 3
 #define DISP_W (BUFFER_W * DISP_SCALE)

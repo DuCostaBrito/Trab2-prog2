@@ -8,8 +8,8 @@ typedef struct SPRITES
 {
     ALLEGRO_BITMAP* _sheet;
     ALLEGRO_BITMAP* candy[8];
-} SPRITES;
-SPRITES sprites;
+} SPRITES_t;
+SPRITES_t sprites;
 
 ALLEGRO_BITMAP* sprite_grab(int x, int y, int w, int h);
 

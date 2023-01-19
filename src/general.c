@@ -1,4 +1,4 @@
-#include "general.h"
+#include "../general.h"
 
 
 void must_init(bool test, const char *description)

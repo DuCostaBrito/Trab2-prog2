@@ -1,4 +1,5 @@
-#include "candy.h"
+#include "../candy.h"
+#include "../sprite.h"
 
 void initializeBoard(CANDY *board[]) {
     int i, j;
@@ -9,8 +10,8 @@ void initializeBoard(CANDY *board[]) {
             board[i][j].type = ct;
             board[i][j].xBoardPos = i;
             board[i][j].yBoardPos = j;
-            board[i][j].x = 0;
-            board[i][j].y = 0;
+            board[i][j].x = i * 24;
+            board[i][j].y = j * 24;
             board[i][j].seq = false;
         }
     }

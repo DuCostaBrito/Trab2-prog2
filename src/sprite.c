@@ -1,4 +1,4 @@
-#include "sprite.h"
+#include "../sprite.h"
 
 ALLEGRO_BITMAP* sprite_grab(int x, int y, int w, int h)
 {

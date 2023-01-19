@@ -1,5 +1,4 @@
 #include "general.h"
-#include "sprite.h"
 
 #define BOARD_SIZE 8
 

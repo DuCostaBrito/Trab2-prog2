@@ -1,4 +1,4 @@
-#include "audio.h"
+#include "../audio.h"
 
 void audio_init()
 {
